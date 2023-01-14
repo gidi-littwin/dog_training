@@ -1,0 +1,79 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+# *.py[cod]
+# *$py.class
+# C extensions
+*.so
+*.bin
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.p
+
+*.png
+*.pyc
+*.zip
+*.npz
+.DS_store
+**/data/labeled_data/*
+**/data/buckets/*
+**/data/results/*
+**/data/generation/*
+**/processing/BMIEngine/*
+
+
+# Spyder project settings
+**/spyderproject/*
+**/spyproject/*
+**/.spyproject/*
+*events.out*
+# # Translations
+# *.mo
+# *.pot
+
+# Jupyter Notebook
+.ipynb_checkpoints
+# **/*.*ml
+
+# # pyenv
+# .python-version
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.csv
+*.log
+
+
+
+results/
+.idea/
+.cache/
+wandb/
+data/database.csv
+data/session_quality.csv
+
+*.pkl
+data/persisted/
