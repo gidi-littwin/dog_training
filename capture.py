@@ -2,9 +2,12 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+def draw_indication(image):
+    cv2.circle(image, (8,8), 5, (0,0,255), -1)
+
 frameWidth = 640
 frameHeight = 480
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, frameWidth)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frameHeight)
 cap.set(cv2.CAP_PROP_MODE, 150)
