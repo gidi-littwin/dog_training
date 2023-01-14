@@ -1,10 +1,14 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import serial
+
+ser = serial.Serial('/dev/tty.usbmodem2101', 9600, timeout=0.050)
 
 
 def draw_indication(img):
     cv2.circle(img, (8, 8), 5, (0, 0, 255), -1)
+    ser.write(b'H')
 
 
 frameWidth = 640
@@ -32,12 +36,16 @@ while cap.isOpened():
         diff_move_avg = np.mean(diff_array)
         print(f'Image diff is: {diff_move_avg}')
         movement_detected = False
+
         if diff_move_avg > 3.:
             movement_detected = True
 
         if success:
             if movement_detected:
                 draw_indication(img)
+            else:
+                ser.write(b'L')
+
             cv2.imshow("Result", img)
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
