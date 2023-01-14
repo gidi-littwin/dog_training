@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import torch
+import torchvision.models as models
+from torchvision import transforms
 
 
 def draw_indication(img):
@@ -18,6 +21,16 @@ cap.set(cv2.CAP_PROP_MODE, 150)
 # cap.set(cv2.CAP_PROP_FPS, 10)
 # fps = int(cap.get(5))
 # print("fps:", fps)
+
+# Normalization transformation
+transform = transforms.Compose([  # [1]
+    transforms.Resize(256),  # [2]
+    transforms.CenterCrop(224),  # [3]
+    transforms.ToTensor(),  # [4]
+    transforms.Normalize(  # [5]
+        mean=[0.485, 0.456, 0.406],  # [6]
+        std=[0.229, 0.224, 0.225]  # [7]
+    )])
 
 prev_gray = None
 diff_array = list(np.zeros(30))
